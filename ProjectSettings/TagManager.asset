@@ -14,6 +14,7 @@ TagManager:
   - East Wall
   - West Wall
   - North Wall
+  - Pet
   - New Tag
   layers:
   - Default

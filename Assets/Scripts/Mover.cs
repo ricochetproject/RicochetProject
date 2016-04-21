@@ -1,105 +1,132 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Mover : MonoBehaviour {
+public class Mover : MonoBehaviour
+{
 
     public float speed;
 
-	
-	private Vector3 direction;
-	private Vector3 target;
-	private float collisionAngle;
+    private GameController gameController;
 
-//	void Start () {
-//
-//        Rigidbody rigidbody = GetComponent<Rigidbody>();
-//
-//	    cursorInWorldPos = Camera.main.ScreenToWorldPoint( Input.mousePosition );
-//		Debug.Log (cursorInWorldPos.x + "," + cursorInWorldPos.y + "," + cursorInWorldPos.z);
-//
-//		transform.LookAt (cursorInWorldPos);
-//
-//		Vector3 direction = cursorInWorldPos - transform.position;
-//		//direction.Normalize();
-//
-//
-//
-////
-////		float angle = Mathf.Atan2(direction.x,direction.z) * Mathf.Rad2Deg;
-////
-////		Debug.Log ("angle : " + angle);
-////
-////		transform.Rotate (Vector3.up, angle);
-//
-//
-//
-//
-//	}
-//
-//	void Update(){
-//
-//		transform.Translate(transform.forward * speed * Time.deltaTime);
-//	}
-//	
+    private Vector3 direction;
+    private Vector3 target;
+    private float collisionAngle;
 
-	void Start(){
-		target = Camera.main.ScreenToWorldPoint (Input.mousePosition);
-		target = new Vector3 (target.x, transform.position.y, target.z);
+    //	void Start () {
+    //
+    //        Rigidbody rigidbody = GetComponent<Rigidbody>();
+    //
+    //	    cursorInWorldPos = Camera.main.ScreenToWorldPoint( Input.mousePosition );
+    //		Debug.Log (cursorInWorldPos.x + "," + cursorInWorldPos.y + "," + cursorInWorldPos.z);
+    //
+    //		transform.LookAt (cursorInWorldPos);
+    //
+    //		Vector3 direction = cursorInWorldPos - transform.position;
+    //		//direction.Normalize();
+    //
+    //
+    //
+    ////
+    ////		float angle = Mathf.Atan2(direction.x,direction.z) * Mathf.Rad2Deg;
+    ////
+    ////		Debug.Log ("angle : " + angle);
+    ////
+    ////		transform.Rotate (Vector3.up, angle);
+    //
+    //
+    //
+    //
+    //	}
+    //
+    //	void Update(){
+    //
+    //		transform.Translate(transform.forward * speed * Time.deltaTime);
+    //	}
+    //	
 
-		direction = target - transform.position;
-		direction.Normalize ();
+    void Start()
+    {
 
-		float angle = Mathf.Atan2(direction.x,direction.z) * Mathf.Rad2Deg;
+        GameObject gameControllerObject = GameObject.FindWithTag("GameController");
+        if (gameControllerObject != null)
+        {
+            gameController = gameControllerObject.GetComponent<GameController>();
+        }
 
-		transform.Rotate (Vector3.up, angle);
+        if (gameController == null)
+        {
+            Debug.Log("Cannot find 'GameController' script!");
+        }
 
-//		Rigidbody rigidbody = GetComponent<Rigidbody>();
-//		rigidbody.velocity = direction * speed;
+        target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        target = new Vector3(target.x, transform.position.y, target.z);
 
-	}
+        direction = target - transform.position;
+        direction.Normalize();
 
-	void Update () {
+        float angle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
 
-		//transform.Translate (direction * Time.deltaTime);
+        transform.Rotate(Vector3.up, angle);
 
-		//transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
-		transform.position += direction * (speed * Time.deltaTime);
-	}    
+        //		Rigidbody rigidbody = GetComponent<Rigidbody>();
+        //		rigidbody.velocity = direction * speed;
 
+    }
 
-	void OnTriggerEnter(Collider other){
+    void Update()
+    {
 
-		Rigidbody rigidbody = GetComponent<Rigidbody>();
+        //transform.Translate (direction * Time.deltaTime);
 
-		Debug.Log ("col angle : " + collisionAngle);
-		Vector3 vel = rigidbody.velocity;
-
-		if (other.tag == "North Wall") {
-
-
-
-			direction = Vector3.Reflect (direction, Vector3.forward);
+        //transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
+        transform.position += direction * (speed * Time.deltaTime);
+    }
 
 
-		
-		} else if (other.tag == "South Wall") {
+    void OnTriggerEnter(Collider other)
+    {
 
-			direction = Vector3.Reflect (direction, Vector3.forward);
+        Rigidbody rigidbody = GetComponent<Rigidbody>();
 
-		}
+        //Debug.Log (other.tag);
+        Vector3 vel = rigidbody.velocity;
 
-		else if (other.tag == "East Wall") {
+        if (other.tag == "North Wall")
+        {
 
-			direction = Vector3.Reflect (direction, Vector3.right);
-		
-		}
-		else if (other.tag == "West Wall") {
-			direction = Vector3.Reflect (direction, Vector3.right);
-		
-		}
 
-		
-		
-	}
-	
+
+            direction = Vector3.Reflect(direction, Vector3.forward);
+
+
+
+        }
+        else if (other.tag == "South Wall")
+        {
+
+            direction = Vector3.Reflect(direction, Vector3.forward);
+
+        }
+
+        else if (other.tag == "East Wall")
+        {
+
+            direction = Vector3.Reflect(direction, Vector3.right);
+
+        }
+        else if (other.tag == "West Wall")
+        {
+            direction = Vector3.Reflect(direction, Vector3.right);
+
+        }
+        else if (other.tag == "Pet")
+        {
+            Destroy(gameObject);
+            gameController.IncScore();
+        }
+
+
+
+    }
+
 }
