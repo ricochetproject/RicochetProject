@@ -103,8 +103,14 @@ public class Mover : MonoBehaviour
         }
         else if (other.tag == "South Wall")
         {
+            Debug.Log("angle: " + other.transform.eulerAngles.y);
+            Vector3 temp = new Vector3(Mathf.Sin(other.transform.eulerAngles.y), 0, Mathf.Cos(other.transform.eulerAngles.y));
+            //temp.Normalize();
+            Debug.Log(temp);
 
-            direction = Vector3.Reflect(direction, Vector3.forward);
+            
+
+            direction = Vector3.Reflect(direction, Vector3.forward + temp);
 
         }
 
