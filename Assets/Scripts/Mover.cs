@@ -80,7 +80,13 @@ public class Mover : MonoBehaviour
 
         //transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
         transform.position += direction * (speed * Time.deltaTime);
+
+        
+
     }
+
+
+  
 
 
     void OnTriggerEnter(Collider other)
@@ -103,14 +109,10 @@ public class Mover : MonoBehaviour
         }
         else if (other.tag == "South Wall")
         {
-            Debug.Log("angle: " + other.transform.eulerAngles.y);
-            Vector3 temp = new Vector3(Mathf.Sin(other.transform.eulerAngles.y), 0, Mathf.Cos(other.transform.eulerAngles.y));
-            //temp.Normalize();
-            Debug.Log(temp);
+         
+            Vector3 temp = new Vector3(Mathf.Sin(other.transform.eulerAngles.y * (Mathf.PI/180)), 0, Mathf.Cos(other.transform.eulerAngles.y* (Mathf.PI / 180)));
 
-            
-
-            direction = Vector3.Reflect(direction, Vector3.forward + temp);
+            direction = Vector3.Reflect(direction,temp);
 
         }
 
