@@ -13,11 +13,13 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile></CompilerResponseFile>
+    <CompilerResponseFile>
+    </CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>Android:13</UnityBuildTarget>
     <UnityVersion>5.3.4f1</UnityVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <LangVersion Condition=" '$(VisualStudioVersion)' != '10.0' ">4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -58,8 +60,29 @@
     <Reference Include="UnityEngine.Networking">
       <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEngine.Networking">
+      <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Cecil">
+      <HintPath>Library\UnityAssemblies\Mono.Cecil.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions.Xcode">
+      <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions.Common">
+      <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions.Xcode">
+      <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions.Common">
+      <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Common.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -69,5 +92,38 @@
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\WallContact.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\Materials\Background.jpg" />
+    <Content Include="Assets\Materials\cat.jpg" />
+    <Content Include="Assets\Materials\heart.jpg" />
+    <Content Include="Assets\Materials\vitez.jpg" />
+    <Content Include="Assets\Materials\Vitez2.jpg" />
+    <Content Include="Assets\Textures\2000px-Maslow%27s_Hierarchy_of_Needs.svg.png" />
+    <Content Include="Assets\Textures\back.jpg" />
+    <Content Include="Assets\Textures\fx_lazer_orange_dff.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Materials\back.mat" />
+    <None Include="Assets\Materials\back.mat.meta" />
+    <None Include="Assets\Materials\Background.jpg.meta" />
+    <None Include="Assets\Materials\cat.jpg.meta" />
+    <None Include="Assets\Materials\fx_bolt_orange.mat" />
+    <None Include="Assets\Materials\fx_bolt_orange.mat.meta" />
+    <None Include="Assets\Materials\heart.jpg.meta" />
+    <None Include="Assets\Materials\Materials.meta" />
+    <None Include="Assets\Materials\Materials\cat.mat" />
+    <None Include="Assets\Materials\Materials\cat.mat.meta" />
+    <None Include="Assets\Materials\Materials\heart.mat" />
+    <None Include="Assets\Materials\Materials\heart.mat.meta" />
+    <None Include="Assets\Materials\Materials\vitez.mat" />
+    <None Include="Assets\Materials\Materials\vitez.mat.meta" />
+    <None Include="Assets\Materials\Materials\Vitez2.mat" />
+    <None Include="Assets\Materials\Materials\Vitez2.mat.meta" />
+    <None Include="Assets\Materials\vitez.jpg.meta" />
+    <None Include="Assets\Materials\Vitez2.jpg.meta" />
+    <None Include="Assets\Textures\back.jpg.meta" />
+    <None Include="Assets\Textures\fx_lazer_orange_dff.tif.meta" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>
