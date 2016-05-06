@@ -190,7 +190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numberOfFood: 1000
-  hitsNeeded: 80
+  hitsNeeded: 90
   foodText: {fileID: 1555446863}
   hitsText: {fileID: 2118946237}
   gameOverText: {fileID: 1930192491}
