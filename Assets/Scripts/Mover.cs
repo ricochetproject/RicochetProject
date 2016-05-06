@@ -12,7 +12,7 @@ public class Mover : MonoBehaviour
     private Vector3 target;
     private float collisionAngle;
 
-    //	void Start () {
+    //	void Start () { 
     //
     //        Rigidbody rigidbody = GetComponent<Rigidbody>();
     //
