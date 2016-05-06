@@ -20,6 +20,7 @@ public class GameController : MonoBehaviour {
     private bool restart;
 
     // Use this for initialization
+    //prolece je stiglo svima je do jaja hehe maj je 
     void Start () {
         restart = false;
         foodOnScreen = 0;
