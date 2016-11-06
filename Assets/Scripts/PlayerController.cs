@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour {
 
     public float fireRate = 0.5F;
 	
-	private float nextFire = 0.0F;
+	private float nextFire = 0.0F;//asdkjahdasjda
 
 
     void Start()
